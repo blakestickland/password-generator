@@ -1,11 +1,22 @@
 // Assignment Code
 
+// set checkboxes to unchecked after page loads.
+
 // Click "Generate Password" button to start process.
 
 var generateBtn = document.querySelector("#generate");
 
 
 generateBtn.onclick = function generatePassword() { 
+
+  // set checkboxes to unchecked after page loads.
+
+document.getElementById("lowercaseCheck").checked = false;
+document.getElementById("uppercaseCheck").checked = false;
+document.getElementById("specialsCheck").checked = false;
+document.getElementById("numbersCheck").checked = false;
+
+
 
   // Create a prompt to get the user's desired password lenth (between 8 -- 128)
 var pwCharLength = 0;
@@ -25,11 +36,27 @@ while (pwCharLength < 8 || pwCharLength > 128) {
 // series of prompts asking types of charactes o be included in password string
 
 var lowercaseQuery = confirm("Would you like to include lowercase letters?");
-var uppercaseQuery = confirm("Would you like to include uppercase letters?");
-var symbolsQuery = confirm("Would you like to include symbols?");
-var numbersQuery = confirm("Would you like to include numbers?");
+  if (lowercaseQuery == true) {
+      document.getElementById("lowercaseCheck").checked = true;
+    }
 
-console.log(lowercaseQuery, uppercaseQuery, symbolsQuery, numbersQuery);
+var uppercaseQuery = confirm("Would you like to include uppercase letters?");
+  if (uppercaseQuery == true) {
+      document.getElementById("uppercaseCheck").checked = true;
+    } 
+
+var specialsQuery = confirm("Would you like to include special characters?");
+  if (specialsQuery == true) {
+      document.getElementById("specialsCheck").checked = true;
+    }
+
+var numbersQuery = confirm("Would you like to include numbers?");
+  if (numbersQuery == true) {
+      document.getElementById("numbersCheck").checked = true;
+    }       
+
+
+console.log(lowercaseQuery, uppercaseQuery, specialsQuery, numbersQuery);
 
 // assign variables to arrays for character selection
 
@@ -39,8 +66,8 @@ console.log("Lowercase array length is " + lowercase.length);
 var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 console.log("Uppercase array length is " + uppercase.length);
 
-var symbols = ["'", "~", "!", "@", "#", "$", "%","^", "&", "*", "(", ")", "_", "+", "=", "-", "'", "{", "}", "]", "[", "|", ":", ";", "<", ">", "?", ".", "/", ";"];
-console.log("Symbols array length is " + symbols.length);
+var specials = ["'", "~", "!", "@", "#", "$", "%","^", "&", "*", "(", ")", "_", "+", "=", "-", "'", "{", "}", "]", "[", "|", ":", ";", "<", ">", "?", ".", "/", ";"];
+console.log("Special characters array length is " + specials.length);
 
 var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 console.log("Numbers array length is " + numbers.length);
@@ -75,13 +102,13 @@ if (uppercaseQuery === true && (tally != pwCharLength)) {
 }
 
 
-if (symbolsQuery === true && (tally != pwCharLength)) {
-  var symbolsRandNum = Math.floor(Math.random() * symbols.length);
-  console.log("symbols random number is: " + symbolsRandNum);
-  console.log("symbols letter seleected was: " + symbols[symbolsRandNum])
-  charSelection.push(symbols[symbolsRandNum]);
+if (specialsQuery === true && (tally != pwCharLength)) {
+  var specialsRandNum = Math.floor(Math.random() * specials.length);
+  console.log("specials random number is: " + specialsRandNum);
+  console.log("specials letter seleected was: " + specials[specialsRandNum])
+  charSelection.push(specials[specialsRandNum]);
   tally++;
-  console.log("symbols increased tally to: " + tally);
+  console.log("specials increased tally to: " + tally);
 }
 
 

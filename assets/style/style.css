@@ -72,6 +72,13 @@ header {
   clear: both;
 }
 
+.container {
+  text-align: center;
+  background-color: #b8c8da;
+  padding: 1rem 0 1rem 0;
+  border: 4px dotted rgb(109, 104, 104) ;
+}
+
 .btn {
   border: none;
   background-color: hsl(360, 91%, 36%);
