@@ -17,7 +17,7 @@ The following image demonstrates the application functionality:
 
 Link to deployed application:
 
-
+https://blakestickland.github.io/password-generator/
 
 
 ## User Story

@@ -4,7 +4,23 @@
 
 var generateBtn = document.querySelector("#generate");
 
-generateBtn.onclick = function() { 
+
+generateBtn.onclick = function generatePassword() { 
+
+  // Create a prompt to get the user's desired password lenth (between 8 -- 128)
+var pwCharLength = 0;
+
+while (pwCharLength < 8 || pwCharLength > 128) {
+
+  pwCharLength = prompt("Please enter a number between 8 and 128 for the length of your password.");
+
+  if (pwCharLength >= 8 && pwCharLength <= 128) {
+    alert("Thank you for choosing a password of " + pwCharLength + " characters.");
+  }
+  else if (pwCharLength < 8 || pwCharLength > 128) {
+    alert("Please try again.");
+  }
+}
 
 // series of prompts asking types of charactes o be included in password string
 
@@ -29,27 +45,11 @@ console.log("Symbols array length is " + symbols.length);
 var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 console.log("Numbers array length is " + numbers.length);
 
-// Create a prompt to get the user's desired password lenth (between 8 -- 128)
-var pwCharLength = 0;
-
-while (pwCharLength < 8 || pwCharLength > 128) {
-
-  pwCharLength = prompt("Please enter a number between 8 and 128 for the length of your password.");
-
-  if (pwCharLength >= 8 && pwCharLength <= 128) {
-    alert("Thank you for choosing a password of " + pwCharLength + " characters.");
-  }
-  else if (pwCharLength < 8 || pwCharLength > 128) {
-    alert("Please try again.");
-  }
-}
-
-
 // create array which will have the character groups added based on confirm message results
 
 var charSelection = [];
 var tally = 0;
-var password = "";
+// var password = "";
 
 // While the action tally is lee than or equal to the desired password length, randomly add desired characters to a string.=.
 
@@ -95,31 +95,35 @@ if (numbersQuery === true && (tally != pwCharLength)) {
   console.log("numbers increased tally to: " + tally);
 }
 
-} // end of while loop
+} // end of character selection while loop
 
 console.log(charSelection);
 
-} 
+// convert array to a string
+
+var password = charSelection.join("");
+
+console.log("Ordered password is: " + password);
 
 // randomly shuffle or arrange an array
 
-// convert array to a string
-
-// display in html box
-
-// change the password character length string to an integer
-
-console.log(pwCharLength);
-
-
-// Write password to the #password input
-function writePassword() {
-  // var password = generatePassword();  need to define this prior
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
+function shuffle(array) {
+  array.sort(() => Math.random() - 0.5);
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+randCharSelection = shuffle(charSelection);
+var randPassword = charSelection.join("");
+
+console.log(randPassword);
+
+
+// Write randomized password to the #password input
+function writePassword() {
+  var passwordText = document.querySelector("#password");
+  passwordText.value = randPassword;
+}
+
+writePassword();
+
+
+}  // end of generatePassword() function
