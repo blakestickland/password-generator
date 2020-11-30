@@ -1,7 +1,3 @@
-// Assignment Code
-
-// set checkboxes to unchecked after page loads.
-
 // Click "Generate Password" button to start process.
 
 var generateBtn = document.querySelector("#generate");
@@ -36,27 +32,24 @@ while (pwCharLength < 8 || pwCharLength > 128) {
 // series of prompts asking types of charactes o be included in password string
 
 var lowercaseQuery = confirm("Would you like to include lowercase letters?");
-  if (lowercaseQuery == true) {
+  if (lowercaseQuery) {
       document.getElementById("lowercaseCheck").checked = true;
     }
 
 var uppercaseQuery = confirm("Would you like to include uppercase letters?");
-  if (uppercaseQuery == true) {
+  if (uppercaseQuery) {
       document.getElementById("uppercaseCheck").checked = true;
     } 
 
 var specialsQuery = confirm("Would you like to include special characters?");
-  if (specialsQuery == true) {
+  if (specialsQuery) {
       document.getElementById("specialsCheck").checked = true;
     }
 
 var numbersQuery = confirm("Would you like to include numbers?");
-  if (numbersQuery == true) {
+  if (numbersQuery) {
       document.getElementById("numbersCheck").checked = true;
     }       
-
-
-console.log(lowercaseQuery, uppercaseQuery, specialsQuery, numbersQuery);
 
 // assign variables to arrays for character selection
 
@@ -84,11 +77,8 @@ while (tally < pwCharLength) {
 
 if (lowercaseQuery === true && (tally <= pwCharLength)) {
   var lowerRandNum = Math.floor(Math.random() * lowercase.length);
-  console.log("lowercase random number is: " + lowerRandNum);
-  console.log("lowercase letter seleected was: " + lowercase[lowerRandNum])
   charSelection.push(lowercase[lowerRandNum]);
   tally++;
-  console.log("lowercase increased tally to: " + tally);
 }
 
 
@@ -124,24 +114,25 @@ if (numbersQuery === true && (tally != pwCharLength)) {
 
 } // end of character selection while loop
 
-console.log(charSelection);
-
-// convert array to a string
+// convert generated array to a string
 
 var password = charSelection.join("");
 
-console.log("Ordered password is: " + password);
+// display string in console log to check result
 
-// randomly shuffle or arrange an array
+console.log("Generated password is: " + password);
+
+// randomly shuffle the charSelection array to randomize sequence of characters
 
 function shuffle(array) {
   array.sort(() => Math.random() - 0.5);
 }
 
-randCharSelection = shuffle(charSelection);
+shuffle(charSelection);
 var randPassword = charSelection.join("");
 
-console.log(randPassword);
+// display string in console log to check result
+console.log("Randomized password is: " + randPassword);
 
 
 // Write randomized password to the #password input

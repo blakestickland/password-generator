@@ -19,44 +19,10 @@ Link to deployed application:
 
 https://blakestickland.github.io/password-generator/
 
+Challenges: 
+* Working out how to randomize the sequentially generated random password took some time. 
+* Displaying the text in the text area was a challenge.
 
-## User Story
-
-```
-AS AN employee with access to sensitive data
-I WANT to randomly generate a password that meets certain criteria
-SO THAT I can create a strong password that provides greater security
-```
-
-## Acceptance Criteria
-
-```
-GIVEN I need a new, secure password
-WHEN I click the button to generate a password
-THEN I am presented with a series of prompts for password criteria
-WHEN prompted for password criteria
-THEN I select which criteria to include in the password
-WHEN prompted for the length of the password
-THEN I choose a length of at least 8 characters and no more than 128 cha
-WHEN prompted for character types to include in the password
-THEN I choose lowercase, uppercase, numeric, and/or special characters
-WHEN I answer each prompt
-THEN my input should be validated and at least one character type should
-WHEN all prompts are answered
-THEN a password is generated that matches the selected criteria
-WHEN the password is generated
-THEN the password is either displayed in an alert or written to the page
-
-
-** to work on next 
-
--- need to shuffle the array.
-
--- need to change array to string.
-
--- need to get password string into the text box. 
-
--- need to check the loops will choose from correct set.
- remember zero index and value assigned to "x" or "i"
-
- -- need to turn check boxes to ticks if confirm() returns true.
+For future development:
+* Replace the check boxes, which are a misleading in that they only deisplay the result of the confirm messages. Instead, could display the user selected criteria in a text area including stating the length of the password.
+* Redesign the password generator so that one character from each chosen character array is selected, then the rest of the password is generated completely randomly from a concatenated set. 
