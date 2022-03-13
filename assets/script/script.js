@@ -85,7 +85,7 @@ if (lowercaseQuery === true && (tally <= pwCharLength)) {
 if (uppercaseQuery === true && (tally != pwCharLength)) {
   var upperRandNum = Math.floor(Math.random() * uppercase.length);
   console.log("uppercase random number is: " + upperRandNum);
-  console.log("uppercase letter seleected was: " + uppercase[upperRandNum])
+  console.log("uppercase letter selected was: " + uppercase[upperRandNum])
   charSelection.push(uppercase[upperRandNum]);
   tally++;
   console.log("uppercase increased tally to: " + tally);
@@ -95,7 +95,7 @@ if (uppercaseQuery === true && (tally != pwCharLength)) {
 if (specialsQuery === true && (tally != pwCharLength)) {
   var specialsRandNum = Math.floor(Math.random() * specials.length);
   console.log("specials random number is: " + specialsRandNum);
-  console.log("specials letter seleected was: " + specials[specialsRandNum])
+  console.log("specials letter selected was: " + specials[specialsRandNum])
   charSelection.push(specials[specialsRandNum]);
   tally++;
   console.log("specials increased tally to: " + tally);
@@ -106,7 +106,7 @@ if (specialsQuery === true && (tally != pwCharLength)) {
 if (numbersQuery === true && (tally != pwCharLength)) {
   var numbersRandNum = Math.floor(Math.random() * numbers.length);
   console.log("numbers random number is: " + numbersRandNum);
-  console.log("numbers letter seleected was: " + numbers[numbersRandNum])
+  console.log("numbers letter selected was: " + numbers[numbersRandNum])
   charSelection.push(numbers[numbersRandNum]);
   tally++;
   console.log("numbers increased tally to: " + tally);
